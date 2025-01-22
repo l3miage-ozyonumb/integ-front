@@ -1,0 +1,37 @@
+.search-bar-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align to the top */
+  height: calc(100vh - 100px); /* Adjust height to account for header */
+  padding-top: 20px; /* Optional: Add some padding at the top */
+}
+
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    width: auto;
+    margin: 0 auto;
+  }
+  
+  .search-bar input,
+  .search-bar button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-bar button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
