@@ -1,0 +1,6 @@
+.parking-item {
+    padding: 10px; /* İçeriğin kenarlarından 10px boşluk bırakmak için */
+    background-color: #ffff; /* Arka plan rengini açık mavi yapmak için */
+    border: 1px solid #007bff; /* Çerçeve rengini koyu mavi yapmak için */
+    text-align: left; /* Metni sola hizalamak için */
+  }

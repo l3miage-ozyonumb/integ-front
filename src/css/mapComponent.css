@@ -1,0 +1,11 @@
+.map-container {
+    height: 500px; /* Set the height of the map */
+    width: 80%; /* Make the map responsive to its container */
+    border: 2px solid #0f0f0f; /* Add a border around the map */
+    border-radius: 10px; /* Round the corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
+    margin-top: 0px; /* Add space above the map */
+    overflow: hidden; /* Prevent overflow issues */
+    margin-left: 40px;
+    margin-right: 10px;
+  }

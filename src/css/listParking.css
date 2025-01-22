@@ -1,0 +1,13 @@
+.list-parking {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0; /* Dış boşlukları sıfırlıyoruz */
+    border: 2px solid #0f0f0f;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 400px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}

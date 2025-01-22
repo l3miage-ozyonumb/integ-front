@@ -2,8 +2,10 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: flex-start; /* Align to the top */
-  height: calc(100vh - 100px); /* Adjust height to account for header */
+  height: auto; /* Adjust height to account for header */
   padding-top: 20px; /* Optional: Add some padding at the top */
+  width: 600px;
+  margin: 0 auto;
 }
 
 
