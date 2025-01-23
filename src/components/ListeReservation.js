@@ -5,7 +5,9 @@ import '../css/listeReservation.css'
 export const ListeReservation = () => {
 
     const [reservations, setReservations] = useState([
-        {id: 1, parking: 'Parking A', date: '2021-12-01', time: '10:00 AM', duration: '2 hours',}
+      {id: 1, parking: 'Parking A', date: '2021-12-01', time: '10:00 AM', duration: '2 hours',},
+      {id: 2, parking: 'Parking B', date: '2021-12-01', time: '10:00 AM', duration: '2 hours',}
+
     ]);
 
   return (

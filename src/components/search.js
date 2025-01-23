@@ -7,11 +7,12 @@ export const Search = () => {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [stayDuration, setStayDuration] = useState('');
+    const [pmr, setPmr] = useState(false);
 
 
     const handleSearch = () => {
         // Handle the search logic here
-        console.log({ place, date, time, stayDuration });
+        console.log({ place, date, time, stayDuration, pmr });
       };
 
 
@@ -24,6 +25,14 @@ export const Search = () => {
       value={place}
       onChange={(e) => setPlace(e.target.value)}
     />
+    <div className='checkbox-container'>
+      <input type="checkbox"
+      id = "pmr"
+      checked = {pmr}
+      onChange = {() => setPmr(!pmr)}
+      />
+      <label htmlFor="pmr">PMR</label>
+    </div>
     <input
       type="date"
       value={date}

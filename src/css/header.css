@@ -4,23 +4,34 @@
     align-items: center;
     padding: 10px 20px;
     height: 100px;
-    background-color: #ffffff; /* Optional: background color */
+    background-color: #2b77c4; /* Optional: background color */
   }
 
-.logo-container {
+.logo-container-park {
     display: flex;
     align-items: center;
 }
 
-.logo {
-    height: 60px; /* Adjust the height as needed */
+.logo-park {
+    height: 80px;
+    border-radius: 45%;
+    width: 80px;
+    object-fit: cover; /* Adjust the height as needed */
+}
+
+.logo-login {
+    height: 40px;
+    border-radius: 45%;
+    width: 40px;
+    object-fit: cover;
+    display: block; /* Adjust the height as needed */
 }
 
 .logo-text {
-    font-size: 24px;
+    font-size: 30px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    color: #02060a;
+    color: #ffff;
     margin-left: 10px;
 }
 
@@ -49,4 +60,56 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+
+.logo-container-login {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logo-login {
+  width: 40px;
+  height: 40px;
+}
+
+/* Menü */
+.menu {
+  position: absolute; /* Logoya göre hizalanır */
+  top: 50px; /* Menü logonun altına yerleşir */
+  right: 0; /* Menüyü sağa hizalar */
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100; /* Menü diğer elemanların üstünde görünür */
+  width: 150px; /* Menünün genişliği */
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out; /* Geçiş efekti */
+  visibility: visible; /* Menü görünür */
+  opacity: 1; /* Menü opak */
+}
+
+.menu-item {
+  display: block;
+  padding: 8px 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Menü başlangıçta gizli */
+.logo-container-login .menu {
+  visibility: hidden; /* Menü başlangıçta görünmez */
+  opacity: 0; /* Menü başlangıçta şeffaf */
+}
+
+/* Hover durumu */
+.logo-container-login:hover .menu {
+  visibility: visible; /* Menü görünür olur */
+  opacity: 1; /* Menü opak olur */
 }
