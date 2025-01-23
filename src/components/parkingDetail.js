@@ -12,6 +12,7 @@ export const ParkingDetail = ( {parking} ) => {
           <h2>{parking.name}</h2>
           <p><strong>Address:</strong> {parking.address}</p>
           <p><strong>Price:</strong> {parking.price}</p>
+          <button className='book-button'>Book Now</button>
           {/* Add more details as needed */}
         </div>
       );
