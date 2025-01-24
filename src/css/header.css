@@ -88,6 +88,8 @@
   transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out; /* Geçiş efekti */
   visibility: visible; /* Menü görünür */
   opacity: 1; /* Menü opak */
+  margin-top: 40px;
+  margin-right: 10px;
 }
 
 .menu-item {

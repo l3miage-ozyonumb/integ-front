@@ -1,12 +1,13 @@
 .search-bar-container {
   display: flex;
   justify-content: center; /* Center horizontally */
-  align-items: flex-start; /* Align to the top */
+  align-items: center; /* Align to the top */
   height: auto; /* Adjust height to account for header */
   padding-top: 20px; /* Optional: Add some padding at the top */
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   background-color: #ffff;
+  flex-direction: column;
 }
 
 
@@ -31,7 +32,9 @@
 
   .checkbox-container {
     display: flex;
-    align-items: center;
+    align-items: left;
+    margin-left: -800px;
+    margin-top: 10px;
   }
   
   .checkbox-container input {

@@ -8,6 +8,10 @@ export const Header = () => {
 
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
+  const toggleMenu = () => {
+    setIsMenuVisible(!isMenuVisible);
+  };
+
 
   return (
     <div className='header'>
@@ -17,19 +21,15 @@ export const Header = () => {
         </Link>
         <span className='logo-text'>Park-In</span>
         </div>
-        <div className='logo-container-login' onMouseEnter={() => setIsMenuVisible(true)}
-          onMouseLeave={() => setIsMenuVisible(false)}>
+        <div className='logo-container-login' onClick={toggleMenu}>
           <img src={logo_login} alt='logo-login' className='logo-login' />
-          {isMenuVisible && (
-            <div className='menu'
-            onMouseEnter={() => setIsMenuVisible(true)} // Menü açık kalır
-            onMouseLeave={() => setIsMenuVisible(false)} // Menü kapanır
-            >
-              <Link to='/login'>Login</Link>
-              <Link to='/register'>Register</Link>
-            </div>
-          )}
         </div>
+        {isMenuVisible &&
+        <div className='menu'>
+          <p className='menu-item'>item 1</p>
+          <p className='menu-item'>item 2</p>  
+          
+        </div>}
   </div>
   )
 }
