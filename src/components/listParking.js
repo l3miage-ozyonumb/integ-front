@@ -15,11 +15,11 @@ export const ListParking = ( {onSelectParking}) => {
 
   return (
     <div className='list-parking'>
-        {parkings.map((parking) => (
-          <div key={parking.id} onClick={() => onSelectParking(parking)}>
-            <Parking key={parking.id} parking={parking}/>
-          </div>
-        ))}
-    </div>
+            {parkings.map((parking) => (
+                <div key={parking.id}>
+                    <Parking key={parking.id} parking={parking} onSelectParking={onSelectParking} />
+                </div>
+            ))}
+        </div>
   )
 }

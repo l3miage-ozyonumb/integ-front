@@ -3,4 +3,26 @@
     background-color: #ffff; /* Arka plan rengini açık mavi yapmak için */
     border: 1px solid #007bff; /* Çerçeve rengini koyu mavi yapmak için */
     text-align: left; /* Metni sola hizalamak için */
+    position: relative; /* Göreceli konumlandırma */
+
+  }
+
+
+.parking-item:hover {
+    background-color: #f9f9f9; /* Fare üzerine gelindiğinde arka plan rengini açık gri yapmak için */
+  }
+
+.detail-button{
+  background-color: #449a1d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white; /* Text color */
+  font-family: Arial, sans-serif; /* Font family */
+  font-size: 11px; /* Font size */
+  padding: 10px 20px; /* Padding for larger button */
+  position: absolute; /* Absolute positioning */
+  right: 10px; /* Positioning from the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
   }

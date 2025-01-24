@@ -26,6 +26,7 @@ export const Search = () => {
           const { lat, lng } = data.results[0].geometry;
           setCoordinates({ latitude: lat, longitude: lng });
           console.log({ place, date, time, stayDuration, pmr, latitude: lat, longitude: lng });
+          fetchParkings(lat, lng);
         } else {
           console.error('No results found');
         }
@@ -34,6 +35,18 @@ export const Search = () => {
       }
     };
   
+
+
+
+    const fetchParkings = async (latitude, longitude) => {
+      try {
+        const response = await axios.get(`http://localhost:2200/parking/${longitude}/${latitude}`);
+        const parkings = response.data;
+        console.log('Parkings:', parkings);
+      } catch (error) {
+        console.error('Error fetching parkings:', error);
+      }
+    };
 
 
   return (
@@ -55,12 +68,17 @@ export const Search = () => {
       value={time}
       onChange={(e) => setTime(e.target.value)}
     />
-    <input
-      type="text"
-      placeholder="Time of stay (e.g., 2 hours)"
-      value={stayDuration}
-      onChange={(e) => setStayDuration(e.target.value)}
-    />
+    <select
+          value={stayDuration}
+          onChange={(e) => setStayDuration(e.target.value)}
+        >
+          <option value="">Durée</option>
+          <option value="1">1 Heure</option>
+          <option value="2">2 Heure</option>
+          <option value="3">3 Heure</option>
+          <option value="4">4 Heure</option>
+          <option value="24">24 Heure</option>
+        </select>
     <button onClick={handleSearch}>Search</button>
     </div>
     <div className='checkbox-container'>

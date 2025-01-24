@@ -23,7 +23,7 @@ function HomePage() {
       <Search />
       <div className="parkingDetails">
         <ListParking onSelectParking={handleSelectParking} />
-        <ParkingDetail parking={selectedParking} />
+        {selectedParking && <ParkingDetail parking={selectedParking} />}
         <MapComponent parkings={parkings} />
       </div>
     </div>
