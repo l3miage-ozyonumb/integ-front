@@ -26,8 +26,12 @@ export const Header = () => {
         </div>
         {isMenuVisible &&
         <div className='menu'>
-          <p className='menu-item'>item 1</p>
-          <p className='menu-item'>item 2</p>  
+          <Link to='/login' >
+          <p className='menu-item'>Login</p>
+          </Link>
+          <Link to='/register'>
+          <p className='menu-item'>Register</p>  
+          </Link>
           
         </div>}
   </div>

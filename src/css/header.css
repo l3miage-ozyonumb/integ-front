@@ -16,7 +16,8 @@
     height: 80px;
     border-radius: 45%;
     width: 80px;
-    object-fit: cover; /* Adjust the height as needed */
+    margin: auto 0;
+    /* Adjust the height as needed */
 }
 
 .logo-login {
