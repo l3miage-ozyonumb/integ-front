@@ -1,13 +1,29 @@
 import React, { useState } from 'react'
 import '../css/login.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../firebase/AuthContext';
+
+
+
 
 export const Login = () => {
-    
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { login } = useAuth();
 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        await login(email, password);
+        console.log(login)
+        navigate('/');
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
 
   return (
@@ -25,7 +41,7 @@ export const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={() => console.log(email, password)}>Login</button>
+        <button onClick={handleSubmit}>Login</button>
         <Link to='/register'>
         <button>Register</button>
         </Link>

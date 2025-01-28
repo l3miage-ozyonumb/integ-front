@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import '../css/search.css'
 import axios from 'axios'
 
-export const Search = () => {
+export const Search = ( { onCoordinatesChange }) => {
 
     const [place, setPlace] = useState('');
     const [date, setDate] = useState('');
@@ -24,6 +24,7 @@ export const Search = () => {
         const data = response.data;
         if (data.results && data.results.length > 0) {
           const { lat, lng } = data.results[0].geometry;
+          onCoordinatesChange({ latitude: lat, longitude: lng });
           setCoordinates({ latitude: lat, longitude: lng });
           console.log({ place, date, time, stayDuration, pmr, latitude: lat, longitude: lng });
           fetchParkings(lat, lng);

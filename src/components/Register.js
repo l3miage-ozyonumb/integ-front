@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import '../css/register.css';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../firebase/AuthContext';
 
 export const Register = () => {
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const { register } = useAuth();
 
-  const handleRegister = () => {
-    console.log({ email, password, name, surname, phoneNumber });
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await register(email, password);
+      alert("Registration successful");
+      navigate('/login');
+    } catch (error) {
+      console.error(error);
+      alert("Registration failed");
+    }
   };
 
   return (
