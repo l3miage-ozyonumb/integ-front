@@ -6,6 +6,7 @@
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
     "leaflet": "^1.9.4",
+    "my-react-app": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-leaflet": "^5.0.0",
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^13.3.0"
   }
 }
