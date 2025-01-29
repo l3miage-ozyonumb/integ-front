@@ -6,22 +6,27 @@ import '../css/listeReservation.css';
 
 export const ListeReservation = () => {
     const [reservations, setReservations] = useState([]);
-    const { currentUser } = useAuth(); // Şu an giriş yapmış kullanıcıyı al
+    const { user } = useAuth(); // Şu an giriş yapmış kullanıcıyı al
 
     useEffect(() => {
         const fetchReservations = async () => {
-            if (!currentUser) return; // Eğer kullanıcı giriş yapmamışsa çağrı yapma
+            if (!user){ 
+                console.log('User not logged in');
+                return;}
+                 // Eğer kullanıcı giriş yapmamışsa çağrı yapma
 
             try {
-                const response = await axios.get(`http://localhost:2200/reservations/by-email/${currentUser.email}`);
+                console.log('Current user:', user.email);
+                const response = await axios.get(`http://localhost:2200/reservation/by-email/${user.email}`);
                 setReservations(response.data);
+                console.log('Reservations:', response.data);
             } catch (error) {
                 console.error('Error fetching reservations:', error);
             }
         };
 
         fetchReservations();
-    }, [currentUser]); // currentUser değiştiğinde yeniden çağır
+    }, [user]); // currentUser değiştiğinde yeniden çağır
 
     return (
         <div className='liste-reservation'>

@@ -10,6 +10,7 @@ function HomePage() {
   const [selectedParking, setSelectedParking] = useState(null);
   const [center, setCenter] = useState({ lat: 48.8566, lng: 2.3522 });
   const [parkings, setParkings] = useState([]);
+  const [reservationData, setReservationData] = useState(null);
 
   const handleSelectParking = (parking) => {
     setSelectedParking(parking);
@@ -27,14 +28,18 @@ function HomePage() {
       }
     };
 
+    const handleReservation = (reservation) => {
+      setReservationData(reservation); // Reservation bilgilerini state'e aktar
+    };
+
 
   return (
     <div className="HomePage">
       <Header />
-      <Search onCoordinatesChange={handleCoordinatesChange}/>
+      <Search onCoordinatesChange={handleCoordinatesChange} onReservation={handleReservation}/>
       <div className="parkingDetails">
         <ListParking parkings={parkings} onSelectParking={handleSelectParking} />
-        {selectedParking && <ParkingDetail parking={selectedParking} />}
+        {selectedParking && <ParkingDetail parking={selectedParking} reservationData={reservationData} />}
         <MapComponent parkings={parkings} center={center}/>
       </div>
     </div>

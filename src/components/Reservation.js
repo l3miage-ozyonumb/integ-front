@@ -3,9 +3,9 @@ import React from 'react'
 export const Reservation = ( { reservation } ) => {
   return (
     <div className='reservation'>
-        <h2> {reservation.parking } </h2>
-        <p> {reservation.date } </p>
-        <p> {reservation.time } </p>
+        <h2> id parking : {reservation.idparking } </h2>
+        <p> duree : {reservation.dureereservation } </p>
+        <p> numerodeplace : {reservation.numerodeplace } </p>
         <button> Cancel </button>
 
 

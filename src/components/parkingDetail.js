@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import '../css/parkingDetail.css'
 import { useAuth } from '../firebase/AuthContext';
 
-export const ParkingDetail = ( {parking} ) => {
+export const ParkingDetail = ( {parking, reservationData} ) => {
 
   const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,10 +30,10 @@ export const ParkingDetail = ( {parking} ) => {
           return;
         }
         // API'ye POST isteği gönder
-        const reservationData = {
-          parkingId: parking.id,
-          slot: selectedSlot,
-        };
+        // const reservationData = {
+        //   parkingId: parking.id,
+        //   slot: selectedSlot,
+        // };
         console.log('Reservation data:', reservationData);
     
         // Modal'ı kapat
