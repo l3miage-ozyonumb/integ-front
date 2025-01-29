@@ -17,21 +17,19 @@
   margin-top: 40px;
 }
 
-
-book-button{
+.book-button{
   background-color: #449a1d;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white; /* Text color */
-  font-family: Arial, sans-serif; /* Font family */
-  font-size: 11px; /* Font size */
-  padding: 10px 20px; /* Padding for larger button */
-  position: absolute; /* Absolute positioning */
-  right: 10px; /* Positioning from the right */
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%);
-  margin-top: 20px;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; 
+  margin-top: 60px;
+  }
+
+.book-button:hover {
+  background-color: #367a15; /* Darker background color on hover */
 }
 
 .modal {
@@ -73,7 +71,7 @@ book-button{
   }
   
   .modal-buttons button:first-child {
-    background-color: #4caf50;
+    background-color: #449a1d;
     color: white;
   }
   

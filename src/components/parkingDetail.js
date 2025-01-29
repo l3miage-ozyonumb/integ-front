@@ -1,8 +1,10 @@
 import React, { useState} from 'react'
 import '../css/parkingDetail.css'
+import { useAuth } from '../firebase/AuthContext';
 
 export const ParkingDetail = ( {parking} ) => {
 
+  const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState(null);
 
@@ -23,6 +25,10 @@ export const ParkingDetail = ( {parking} ) => {
       };
 
       const handleConfirm = () => {
+        if (!user) {
+          alert('Vous devez vous connecter pour réserver.');
+          return;
+        }
         // API'ye POST isteği gönder
         const reservationData = {
           parkingId: parking.id,

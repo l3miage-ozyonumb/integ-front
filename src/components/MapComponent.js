@@ -33,16 +33,14 @@ const MapComponent = ({ parkings, center }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {parkings.map((parking) =>
-  parking.latitude !== undefined && parking.longitude !== undefined ? (
-    <Marker key={parking.id || `${parking.latitude}-${parking.longitude}`} position={[parking.latitude, parking.longitude]}>
-      <Popup>
-        <strong>{parking.name}</strong>
-        <br />
-        {parking.address}
-      </Popup>
-    </Marker>
-  ) : null
-)}
+          parking.ylat !== undefined && parking.xlong !== undefined ? (
+            <Marker key={parking.idparking || `${parking.ylat}-${parking.xlong}`} position={[parking.ylat, parking.xlong]}>
+              <Popup>
+                <strong>{parking.nom}</strong>
+              </Popup>
+            </Marker>
+          ) : null
+        )}
       </MapContainer>
     </div>
   );
