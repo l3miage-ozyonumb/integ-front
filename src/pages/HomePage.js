@@ -21,6 +21,7 @@ function HomePage() {
   const handleChange = (newCoordinates) => {
     if (newCoordinates.lat && newCoordinates.lng) {
       setCenter(newCoordinates);  // Yalnızca geçerli koordinatları alıyoruz
+      console.log('New coordinates:', newCoordinates);
     }
   };
 
