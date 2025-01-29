@@ -9,7 +9,7 @@ export const Search = ( { onCoordinatesChange }) => {
     const [time, setTime] = useState('');
     const [stayDuration, setStayDuration] = useState('');
     const [pmr, setPmr] = useState(false);
-    const [coordinates, setCoordinates] = useState(null);
+    //const [coordinates, setCoordinates] = useState(null);
 
 
     const handleSearch = async () => {
@@ -25,9 +25,9 @@ export const Search = ( { onCoordinatesChange }) => {
         if (data.results && data.results.length > 0) {
           const { lat, lng } = data.results[0].geometry;
           onCoordinatesChange({ latitude: lat, longitude: lng });
-          setCoordinates({ latitude: lat, longitude: lng });
-          console.log({ place, date, time, stayDuration, pmr, latitude: lat, longitude: lng });
-          fetchParkings(lat, lng);
+          //setCoordinates({ latitude: lat, longitude: lng });
+          //console.log({ place, date, time, stayDuration, pmr, latitude: lat, longitude: lng });
+          //fetchParkings(lat, lng);
         } else {
           console.error('No results found');
         }
@@ -39,15 +39,15 @@ export const Search = ( { onCoordinatesChange }) => {
 
 
 
-    const fetchParkings = async (latitude, longitude) => {
-      try {
-        const response = await axios.get(`http://localhost:2200/parking/${longitude}/${latitude}`);
-        const parkings = response.data;
-        console.log('Parkings:', parkings);
-      } catch (error) {
-        console.error('Error fetching parkings:', error);
-      }
-    };
+    // const fetchParkings = async (latitude, longitude) => {
+    //   try {
+    //     const response = await axios.get(`http://localhost:2200/parking/${longitude}/${latitude}`);
+    //     const parkings = response.data;
+    //     console.log('Parkings:', parkings);
+    //   } catch (error) {
+    //     console.error('Error fetching parkings:', error);
+    //   }
+    // };
 
 
   return (

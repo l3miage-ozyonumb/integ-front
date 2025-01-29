@@ -13,6 +13,26 @@
     padding: 0;
 }
 
+.parking-info{
+  margin-top: 40px;
+}
+
+
+book-button{
+  background-color: #449a1d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white; /* Text color */
+  font-family: Arial, sans-serif; /* Font family */
+  font-size: 11px; /* Font size */
+  padding: 10px 20px; /* Padding for larger button */
+  position: absolute; /* Absolute positioning */
+  right: 10px; /* Positioning from the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  margin-top: 20px;
+}
 
 .modal {
     position: fixed;

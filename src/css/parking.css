@@ -25,4 +25,5 @@
   right: 10px; /* Positioning from the right */
   top: 50%; /* Center vertically */
   transform: translateY(-50%);
+  margin-top: 20px;
   }

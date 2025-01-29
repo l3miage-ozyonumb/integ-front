@@ -10,9 +10,8 @@ export const Parking = ( { parking, onSelectParking } ) => {
 
   return (
     <div className='parking-item'>
-        <h2>{parking.name}</h2>
-        <p>{parking.adresse}</p>
-        <p>{parking.price}</p>
+        <h3>Parking {parking.nom}</h3>
+        <p>Tarif 1H : {parking.tarif1h} €</p>
         <button className="detail-button" onClick={handleDetailClick}>Details</button>
 
     </div>

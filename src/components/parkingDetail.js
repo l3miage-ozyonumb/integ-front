@@ -6,6 +6,8 @@ export const ParkingDetail = ( {parking} ) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState(null);
 
+  console.log('Parking:', parking);
+
     if (!parking) {
         return <div className="parking-details">Select a parking to see details</div>;
       }
@@ -34,9 +36,26 @@ export const ParkingDetail = ( {parking} ) => {
     
       return (
         <div className="parking-details">
-          <h2>{parking.name}</h2>
-          <p><strong>Address:</strong> {parking.address}</p>
-          <p><strong>Price:</strong> {parking.price}</p>
+          <h2>{parking.nom}</h2>
+          <div className='parking-info'>
+          <p><strong>Address:</strong> {parking.adresse}</p>
+          <p><strong>Tarif 1H:</strong> {parking.tarif1h}</p>
+          {parking.tarif2h !== 0 && (
+            <p><strong>Tarif 2H:</strong> {parking.tarif2h}</p>
+          )}
+          {parking.tarif3h !== 0 && (
+            <p><strong>Tarif 3H:</strong> {parking.tarif3h}</p>
+          )}
+          {parking.tarif4h !== 0 && (
+            <p><strong>Tarif 4H:</strong> {parking.tarif4h}</p>
+          )}
+          {parking.tarif24h !== 0 && (
+            <p><strong>Tarif 24H:</strong> {parking.tarif24h}</p>
+          )}
+          <p><strong>Type de Parking:</strong> {parking.typeparking}</p>
+          <p><strong>Hauteur Max:</strong> {parking.hauteurmax} cm</p>
+          </div>
+
           <button className="book-button" onClick={handleBook}>
             Book Now
           </button>
