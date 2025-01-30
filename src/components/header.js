@@ -40,20 +40,23 @@ export const Header = () => {
         <div className='menu'>
           {user ? ( // Kullanıcı giriş yapmışsa
           <>
-          <Link to="/cancel">
-          <p className='menu-item'>Gerer mes reservations</p>
+           <Link to="/profil">
+                <p className='menu-item'>Mon profil</p>
+              </Link>
+          <Link to="/reservations">
+          <p className='menu-item'>Mes réservations</p>
           </Link>
             <p className='menu-item' onClick={handleLogout}>
-              Logout
+              Se déconnecter
             </p>
             </>
           ) : ( // Kullanıcı giriş yapmamışsa
             <>
               <Link to='/login'>
-                <p className='menu-item'>Login</p>
+                <p className='menu-item'>Se connecter </p>
               </Link>
               <Link to='/register'>
-                <p className='menu-item'>Register</p>
+                <p className='menu-item'>S'inscrire</p>
               </Link>
             </>
           )}

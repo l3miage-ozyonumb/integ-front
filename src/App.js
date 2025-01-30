@@ -6,6 +6,7 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { AdminLoginPage } from './pages/AdminLoginPage';
 import { AdminDashboard } from './pages/AdminDashboard';
+import Profil from './pages/Profil';
 
 function App() {
 
@@ -16,9 +17,10 @@ function App() {
       <Routes>
         {/* Main Page */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/profil" element={<Profil />} />
 
         
-        <Route path="/cancel" element={<ReservationPage />} />
+        <Route path="/reservations" element={<ReservationPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/admin" element={<AdminLoginPage />} />

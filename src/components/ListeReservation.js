@@ -30,7 +30,7 @@ export const ListeReservation = () => {
 
     return (
         <div className="liste-reservation">
-        <h1>Mes Reservations</h1>
+        <h1>Mes Réservations</h1>
         {reservations.length > 0 ? (
             reservations.map((reservation) => (
                 <div key={reservation.id}>

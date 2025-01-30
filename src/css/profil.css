@@ -1,0 +1,131 @@
+/* profil.css */
+.profil-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  .profil-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    color: #444;
+  }
+  
+  .profile-info {
+    margin-bottom: 20px;
+  }
+  
+  .profile-info label {
+    font-weight: 600;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .profile-info p, .profile-info input {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .profile-info input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .profile-info input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  .edit-btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .edit-btn button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for bank info */
+  .bank-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+  }
+  
+  .bank-info h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #444;
+    font-weight: 600;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profil-container {
+      padding: 15px;
+    }
+  
+    .profil-box {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    .profile-info input {
+      padding: 10px;
+    }
+  
+    .edit-btn button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+.back-btn {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  color: #0056b3;
+}  

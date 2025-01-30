@@ -84,7 +84,7 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
     <div className="search-bar">
       <input
         type="text"
-        placeholder="Enter place"
+        placeholder="Entrer un endroit"
         value={place}
         onChange={(e) => setPlace(e.target.value)}
       />
@@ -106,7 +106,7 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
         <option value="4">4 Heure</option>
         <option value="24">24 Heure</option>
       </select>
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch}>Rechercher</button>
     </div>
     {errorMessage && <p className="error-message">{errorMessage}</p>}
     <div className="checkbox-container">

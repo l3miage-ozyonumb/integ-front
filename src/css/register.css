@@ -1,41 +1,125 @@
+/* Styles pour la page d'inscription */
+
 .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    padding-top: 150px;
+  display: flex;
+  height: 100vh;
+  background-image: url('../images/Parking.jpg');
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box {
+  background-color: rgba(255, 255, 255, 0.8); /* fond semi-transparent */
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideIn 1s ease-out;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center; /* Centrer le logo et le nom */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.register-logo {
+  width: 50px; /* ajuster la taille du logo */
+  height: auto;
+  margin-right: 10px; /* Espacement entre le logo et le nom */
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button-register {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button-register:hover {
+  background-color: #0056b3;
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Animation pour l'apparition du formulaire */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .register-box {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    width: 400px;
-  }
-  
-  .register-box input {
-    display: block;
     width: 90%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
   }
-  
-  .register-box button {
-    display: block;
-    width: 56%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    margin: 0 auto 10px auto;
+}
+
+@media (max-width: 480px) {
+  .register-logo {
+    width: 40px;
   }
-  
-  .register-box button:hover {
-    background-color: #0056b3;
+
+  .app-name {
+    font-size: 18px;
   }
+
+  h2 {
+    font-size: 20px;
+  }
+}

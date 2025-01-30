@@ -22,10 +22,14 @@
   border: none;
   border-radius: 5px; /* Rounded corners */
   padding: 10px 20px; /* Padding */
-  font-size: 16px; /* Font size */
+  font-size: 11px; /* Font size */
   cursor: pointer; /* Pointer cursor on hover */
   transition: background-color 0.3s ease; 
   margin-top: 60px;
+  font-family: Arial, sans-serif; /* Font family */
+  color: white; /* Text color */
+  width: 60%;
+  margin-left: 50px;
   }
 
 .book-button:hover {
@@ -61,6 +65,7 @@
     justify-content: flex-end;
     gap: 1rem;
     margin-top: 1rem;
+    
   }
   
   .modal-buttons button {
@@ -68,6 +73,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    
   }
   
   .modal-buttons button:first-child {

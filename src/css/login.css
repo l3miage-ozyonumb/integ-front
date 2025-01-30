@@ -1,41 +1,128 @@
+/* Styles pour la page de login */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/Parking.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 0 20px; /* Ajout d'un padding horizontal */
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 1s ease-out; /* Animation pour l'apparition du formulaire */
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-box input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.login-box input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-box button {
+  display: block;
+  width: 50%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px auto;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #0056b3;
+}
+
+.login-box button:active {
+  background-color: #003366;
+}
+
+.register-link {
+  margin-top: 20px;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Animation pour l'apparition du formulaire */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .login-box {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    width: 400px;
-  }
-  
-  .login-box input {
-    display: block;
     width: 90%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .login-box input {
+    width: 100%;
+  }
+
   .login-box button {
-    display: block;
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    margin: 0 auto 10px auto;
+    width: 60%;
   }
-  
-  .login-box button:hover {
-    background-color: #0056b3;
-  }
+}
+
+/* Logo et nom de l'application */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-container img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-container h1 {
+  font-size: 28px;
+  color: #007bff; /* Couleur bleue identique au formulaire d'inscription */
+}

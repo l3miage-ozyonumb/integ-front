@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import '../css/register.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../firebase/AuthContext';
+import logo from '../images/parkin.png';
 
+////AJOUTE ICI FETCH API ADD CONDUCTEUR
 export const Register = () => {
 
   const navigate = useNavigate();
@@ -28,39 +30,54 @@ export const Register = () => {
 
   return (
     <div className="register-container">
-      <div className="register-box">
+    <div className="register-box">
+      <div className="logo-container">
+        <img src={logo} alt="Park-In Logo" className="register-logo" />
+        <div className="app-name">Park-In</div>
+      </div>
+      <h2>Inscription</h2>
+      <form onSubmit={handleRegister}>
         <input
-          type='text'
-          placeholder='Name'
+          type="text"
+          placeholder="Prénom"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
-          type='text'
-          placeholder='Surname'
+          type="text"
+          placeholder="Nom"
           value={surname}
           onChange={(e) => setSurname(e.target.value)}
+          required
         />
         <input
-          type='email'
-          placeholder='Email'
+          type="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type='text'
-          placeholder='Phone Number'
+          type="text"
+          placeholder="Numéro de téléphone"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
+          required
         />
-        <button onClick={handleRegister}>Register</button>
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button className="button-register"type="submit">S'inscrire</button>
+      </form>
+      <div className="login-link">
+        <p>Vous avez déjà un compte ? <a href="/login">Se connecter</a></p>
       </div>
     </div>
+  </div>
   );
 };

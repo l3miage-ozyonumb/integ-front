@@ -110,7 +110,7 @@ export const ParkingDetail = ( {parking, reservationData} ) => {
           </div>
 
           <button className="book-button" onClick={handleBook}>
-            Book Now
+            Réserver
           </button>
     
           {isModalOpen && (

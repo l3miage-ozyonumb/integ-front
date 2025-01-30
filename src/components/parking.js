@@ -12,7 +12,7 @@ export const Parking = ( { parking, onSelectParking } ) => {
     <div className='parking-item'>
         <h3>Parking {parking.nom}</h3>
         <p>Tarif 1H : {parking.tarif1h} €</p>
-        <button className="detail-button" onClick={handleDetailClick}>Details</button>
+        <button className="detail-button" onClick={handleDetailClick}>Voir plus +</button>
 
     </div>
   )
