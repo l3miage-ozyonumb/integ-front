@@ -3,6 +3,7 @@ import '../css/register.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../firebase/AuthContext';
 import logo from '../images/parkin.png';
+import axios from 'axios';
 
 ////AJOUTE ICI FETCH API ADD CONDUCTEUR
 export const Register = () => {
@@ -20,6 +21,18 @@ export const Register = () => {
     e.preventDefault();
     try {
       await register(email, password);
+      // After successful registration, create the conducteur
+      await axios.post('http://localhost:2200/conducteur', {
+        email,
+        motdepass: password,
+        nom: surname,
+        prenom: name,
+        telephone: phoneNumber
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       alert("Registration successful");
       navigate('/login');
     } catch (error) {
@@ -72,7 +85,7 @@ export const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="button-register"type="submit">S'inscrire</button>
+        <button className="button-register" type="submit">S'inscrire</button>
       </form>
       <div className="login-link">
         <p>Vous avez déjà un compte ? <a href="/login">Se connecter</a></p>

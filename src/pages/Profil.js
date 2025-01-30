@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../firebase/AuthContext';
 import '../css/profil.css';
+import axios from 'axios';
 
 const Profil = () => {
   const { user } = useAuth(); // Récupère l'utilisateur du contexte d'authentification
@@ -14,21 +15,43 @@ const Profil = () => {
   });
   const [isEditing, setIsEditing] = useState(false); // Etat pour savoir si l'utilisateur est en mode édition
 
-  useEffect(() => {
-    if (user) {
-      // Séparer le nom complet s'il est présent
-      const [firstName, lastName] = user.displayName ? user.displayName.split(' ') : ['', ''];
+  // useEffect(() => {
+  //   if (user) {
+  //     // Séparer le nom complet s'il est présent
+  //     const [firstName, lastName] = user.displayName ? user.displayName.split(' ') : ['', ''];
 
-      // Récupérer les informations de l'utilisateur depuis Firestore ou autre source (ajoutez ici si nécessaire)
-      setUserData({
-        name: firstName || '', // Prénom
-        surname: lastName || '', // Nom
-        email: user.email,
-        phoneNumber: '', // Vous pouvez ajouter la logique pour récupérer le téléphone depuis Firestore
-        rib: '', // Ajoutez le RIB si nécessaire
-        bankName: '' // Ajoutez le nom de la banque si nécessaire
-      });
-    }
+  //     // Récupérer les informations de l'utilisateur depuis Firestore ou autre source (ajoutez ici si nécessaire)
+  //     setUserData({
+  //       name: firstName || '', // Prénom
+  //       surname: lastName || '', // Nom
+  //       email: user.email,
+  //       phoneNumber: '', // Vous pouvez ajouter la logique pour récupérer le téléphone depuis Firestore
+  //       rib: '', // Ajoutez le RIB si nécessaire
+  //       bankName: '' // Ajoutez le nom de la banque si nécessaire
+  //     });
+  //   }
+  // }, [user]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (user) {
+        try {
+          const response = await axios.get(`http://localhost:2200/conducteur/${user.email}`);
+          const { nom, prenom, telephone } = response.data; // Adjust the response data structure as needed
+          setUserData((prevData) => ({
+            ...prevData,
+            name: prenom || '', // Prénom
+            surname: nom || '', // Nom
+            phoneNumber: telephone || '', // Numéro de téléphone
+            email: user.email
+          }));
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      }
+    };
+
+    fetchUserData();
   }, [user]);
 
   const handleSave = () => {

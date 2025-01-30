@@ -61,7 +61,7 @@ input:focus {
   outline: none;
 }
 
-button-register {
+.button-register {
   width: 100%;
   padding: 12px;
   background-color: #007bff;
