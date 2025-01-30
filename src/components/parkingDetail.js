@@ -10,6 +10,14 @@ export const ParkingDetail = ( {parking, reservationData} ) => {
 
   console.log('Parking:', parking);
 
+  const convertToISOString = (date, time) => {
+    // Tarih ve saati birleştirip ISO formatında string oluşturuyoruz
+    return `${date}T${time}:00`; // time'ın sonuna ":00" ekliyoruz, saniye kısmı için
+  };
+
+  
+  
+
     if (!parking) {
         return <div className="parking-details">Select a parking to see details</div>;
       }
@@ -24,20 +32,59 @@ export const ParkingDetail = ( {parking, reservationData} ) => {
         setSelectedSlot(null); // Seçimi sıfırla
       };
 
-      const handleConfirm = () => {
+      const handleConfirm = async () => {
         if (!user) {
           alert('Vous devez vous connecter pour réserver.');
           return;
         }
+
+
+        const newReservation = {
+          numerodeplace: 2, // Sabit
+          email: user.email, // Firebase kullanıcısının emaili
+          datedebutprevue: convertToISOString(reservationData.datedebutprevue, reservationData.time),// Kullanıcının seçtiği başlangıç zamanı
+          dureereservation: parseFloat(reservationData.dureereservation), // Kalış süresi
+          datefinreel: null, // Başlangıçta bilinmiyor
+          datedebutreel: null, // Eğer rezervasyon henüz başlamadıysa null olabilir
+          etat: "CONFIRME", // Varsayılan olarak beklemede
+          dixminavant: null, // Bunu boş bırakabilirsin (API'ye bağlı)
+          qrcode: null, // QR kod eklenecekse burada olabilir
+          prixfinal: null, // Ücret hesaplaması gerekiyorsa burada eklenir
+          idparking: parking.idparking // Seçilen parking ID'si
+        };
+
+        console.log('Reservation data to send:', newReservation);
+
+
         // API'ye POST isteği gönder
         // const reservationData = {
         //   parkingId: parking.id,
         //   slot: selectedSlot,
         // };
-        console.log('Reservation data:', reservationData);
+        //console.log('Reservation data:', reservationData);
     
-        // Modal'ı kapat
-        handleCloseModal();
+        try {
+          const response = await fetch('http://localhost:2200/reservation', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newReservation) // JSON formatına çevir
+          });
+      
+          if (!response.ok) {
+            throw new Error('Reservation failed');
+          }
+      
+          console.log('Reservation successful:', await response.json());
+          alert('Reservation successful!');
+      
+          // Modal'ı kapat
+          handleCloseModal();
+        } catch (error) {
+          console.error('Error during reservation:', error);
+          alert('Reservation failed. Please try again.');
+        }
       };
     
       return (
@@ -45,18 +92,18 @@ export const ParkingDetail = ( {parking, reservationData} ) => {
           <h2>{parking.nom}</h2>
           <div className='parking-info'>
           <p><strong>Address:</strong> {parking.adresse}</p>
-          <p><strong>Tarif 1H:</strong> {parking.tarif1h}</p>
+          <p><strong>Tarif 1H:</strong> {parking.tarif1h} €</p>
           {parking.tarif2h !== 0 && (
-            <p><strong>Tarif 2H:</strong> {parking.tarif2h}</p>
+            <p><strong>Tarif 2H:</strong> {parking.tarif2h} €</p>
           )}
           {parking.tarif3h !== 0 && (
-            <p><strong>Tarif 3H:</strong> {parking.tarif3h}</p>
+            <p><strong>Tarif 3H:</strong> {parking.tarif3h} €</p>
           )}
           {parking.tarif4h !== 0 && (
-            <p><strong>Tarif 4H:</strong> {parking.tarif4h}</p>
+            <p><strong>Tarif 4H:</strong> {parking.tarif4h} €</p>
           )}
           {parking.tarif24h !== 0 && (
-            <p><strong>Tarif 24H:</strong> {parking.tarif24h}</p>
+            <p><strong>Tarif 24H:</strong> {parking.tarif24h} €</p>
           )}
           <p><strong>Type de Parking:</strong> {parking.typeparking}</p>
           <p><strong>Hauteur Max:</strong> {parking.hauteurmax} cm</p>

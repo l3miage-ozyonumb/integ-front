@@ -36,7 +36,7 @@ export const Reservation = ( { reservation } ) => {
 
   const handleConfirmCancel = async () => {
     try {
-      await axios.delete(`http://localhost:2200/reservations/delete/by-numerodeplace/${reservation.numerodeplace}/by-email/${user.email}/by-idparking/${reservation.idparking}`);
+      await axios.delete(`http://localhost:2200/reservation/delete/by-numerodeplace/${reservation.numerodeplace}/by-email/${user.email}/by-idparking/${reservation.idparking}`);
       // Optionally, you can add logic to remove the reservation from the UI
       setIsModalOpen(false);
       // You can also add a callback or state update to refresh the list of reservations
@@ -65,7 +65,13 @@ export const Reservation = ( { reservation } ) => {
         <p>No Place: {reservation.numerodeplace}</p>
         <p> Etat de la reservation : {reservation.etat}</p>
       </div>
-      <button className='reservation-button' onClick={handleCancel} disabled={isCancelDisabled()}>Annulation</button>
+      <button 
+  className={`reservation-button ${isCancelDisabled() ? 'disabled' : ''}`} 
+  onClick={handleCancel} 
+  disabled={isCancelDisabled()}
+>
+  Annulation
+</button>
 
       {isModalOpen && (
         <div className='modal'>

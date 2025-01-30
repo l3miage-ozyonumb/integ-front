@@ -5,9 +5,9 @@ import axios from 'axios'
 export const Search = ( { onCoordinatesChange, onReservation }) => {
 
     const [place, setPlace] = useState('');
-    const [date, setDate] = useState('');
+    const [datedebutprevue, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [stayDuration, setStayDuration] = useState('');
+    const [dureereservation, setStayDuration] = useState('');
     const [pmr, setPmr] = useState(false);
     //const [coordinates, setCoordinates] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
@@ -16,8 +16,8 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
     const handleSearch = async () => {
 
     const currentDate = new Date();
-    const selectedDate = new Date(date);
-    const selectedTime = time ? new Date(`${date}T${time}:00`) : null;
+    const selectedDate = new Date(datedebutprevue);
+    const selectedTime = time ? new Date(`${datedebutprevue}T${time}:00`) : null;
 
     // Tarih kontrolü
     if (selectedDate < currentDate) {
@@ -51,10 +51,10 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
           //console.log({ place, date, time, stayDuration, pmr, latitude: lat, longitude: lng });
           //fetchParkings(lat, lng);
           const reservationData = {
-            date,
+            datedebutprevue,
             time,
-            stayDuration,
-            pmr};
+            dureereservation,
+            };
           onReservation(reservationData);
 
         } else {
@@ -90,7 +90,7 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
       />
       <input
         type="date"
-        value={date}
+        value={datedebutprevue}
         onChange={(e) => setDate(e.target.value)}
       />
       <input
@@ -98,7 +98,7 @@ export const Search = ( { onCoordinatesChange, onReservation }) => {
         value={time}
         onChange={(e) => setTime(e.target.value)}
       />
-      <select value={stayDuration} onChange={(e) => setStayDuration(e.target.value)}>
+      <select value={dureereservation} onChange={(e) => setStayDuration(e.target.value)}>
         <option value="">Durée</option>
         <option value="1">1 Heure</option>
         <option value="2">2 Heure</option>

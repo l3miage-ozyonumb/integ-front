@@ -29,6 +29,14 @@
     transition: background-color 0.3s ease;
 }
 
+.reservation-button.disabled {
+    background-color: #ccc; /* Gri renk */
+    color: #666; /* Yazı rengini koyulaştır */
+    cursor: not-allowed; /* Fare imlecini "yasak" simgesine çevir */
+    opacity: 0.6; /* Hafif şeffaflık */
+  }
+  
+
 .reservation-button:hover {
     background-color: #cc0000;
 }
