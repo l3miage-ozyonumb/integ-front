@@ -1,6 +1,23 @@
-.liste-reservation{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.liste-reservation {
+    display: flex; /* İçerikleri esnek bir düzenle yerleştir */
+    flex-direction: column; /* Öğeleri dikey sıralar */
+    align-items: center; /* Öğeleri yatayda ortalar */
+    width: 100%; /* Sayfanın tamamını kaplar */
+    padding: 20px;
 }
 
+.liste-reservation h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reservation-card {
+    width: 600px; /* Kartın genişliği */
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px; /* Kartların arasında boşluk bırakır */
+    text-align: center;
+}

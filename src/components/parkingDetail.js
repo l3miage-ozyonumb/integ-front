@@ -74,7 +74,7 @@ export const ParkingDetail = ( {parking, reservationData} ) => {
               value={selectedSlot || ''}
               onChange={(e) => setSelectedSlot(e.target.value)}
             >
-              <option value="">Voulez vous selectionner une place +2.95$</option>
+              <option value="">Voulez vous selectionner une place +2.95$ (Non par defaut)</option>
               <option value="1A">1A</option>
               <option value="1B">1B</option>
               <option value="1C">1C</option>

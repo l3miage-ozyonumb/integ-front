@@ -29,15 +29,17 @@ export const ListeReservation = () => {
     }, [user]); // currentUser değiştiğinde yeniden çağır
 
     return (
-        <div className='liste-reservation'>
-            <h1>My Reservations</h1>
-            {reservations.length > 0 ? (
-                reservations.map((reservation) => (
-                    <Reservation key={reservation.id} reservation={reservation} />
-                ))
-            ) : (
-                <p>No reservations found.</p>
-            )}
-        </div>
+        <div className="liste-reservation">
+        <h1>Mes Reservations</h1>
+        {reservations.length > 0 ? (
+            reservations.map((reservation) => (
+                <div key={reservation.id}>
+                    <Reservation reservation={reservation} />
+                </div>
+            ))
+        ) : (
+            <p>No reservations found.</p>
+        )}
+    </div>
     );
 };
