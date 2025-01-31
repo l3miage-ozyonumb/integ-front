@@ -46,7 +46,7 @@ export const AdminDashboard = () => {
                 <button className="change-price-btn" onClick={handleChangePrice}>Change Price</button>
                 <button className="logout-btn" onClick={handleLogout}>Logout</button>
             </div>
-            <h1>Reservations</h1>
+            <h1>Admin Panel - Reservations</h1>
             <div className="reservation-list">
                 {reservations.map((res) => (
                     <AdminReservation key={res.id} reservation={res} />

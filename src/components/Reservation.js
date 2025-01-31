@@ -39,6 +39,7 @@ export const Reservation = ( { reservation } ) => {
       await axios.delete(`http://localhost:2200/reservation/delete/by-numerodeplace/${reservation.numerodeplace}/by-email/${user.email}/by-idparking/${reservation.idparking}`);
       // Optionally, you can add logic to remove the reservation from the UI
       setIsModalOpen(false);
+      alert('Reservation annulée avec succès, il faut rafraîchir la page pour voir les changements');
       // You can also add a callback or state update to refresh the list of reservations
     } catch (error) {
       console.error('Error deleting reservation:', error);
